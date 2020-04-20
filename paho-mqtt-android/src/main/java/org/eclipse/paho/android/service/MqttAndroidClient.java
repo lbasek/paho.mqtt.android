@@ -1153,6 +1153,11 @@ public class MqttAndroidClient extends BroadcastReceiver implements
         return token;
     }
 
+    @Override
+    public boolean removeMessage(IMqttDeliveryToken token) throws MqttException {
+        return false;
+    }
+
     /**
      * Returns the delivery tokens for any outstanding publish operations.
      * <p>
@@ -1302,6 +1307,11 @@ public class MqttAndroidClient extends BroadcastReceiver implements
 
     public void setManualAcks(boolean manualAcks) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void reconnect() throws MqttException {
+        throw new IllegalStateException("Missing implementation!");
     }
 
     /**
